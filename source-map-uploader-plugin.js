@@ -22,6 +22,7 @@ class BugsnagSourceMapUploaderPlugin {
     this.codeBundleId = options.codeBundleId
     this.overwrite = options.overwrite
     this.endpoint = options.endpoint
+    this.ignoreUploadErrors = options.ignoreUploadErrors || false;
     this.ignoredBundleExtensions = options.ignoredBundleExtensions || ['.css']
     this.validate()
   }
@@ -112,6 +113,7 @@ class BugsnagSourceMapUploaderPlugin {
       apiKey: this.apiKey,
       appVersion: this.appVersion,
       codeBundleId: this.codeBundleId,
+      ignoreUploadErrors: this.ignoreUploadErrors,
       bundleUrl: sm.url,
       bundle: sm.source,
       sourceMap: sm.map
